@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class Inicio {
 
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException {
-		List<String> lineas = Archivo.devolverLineasdeArchivo("C:\\Users\\alegr\\Pictures\\gramatica.txt");
+		List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica.txt");
 		
 		GestorGramatica fgm = new GestorGramatica(lineas);
 		
