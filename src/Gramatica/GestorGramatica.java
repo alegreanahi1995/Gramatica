@@ -443,7 +443,6 @@ public GestorGramatica(List<String> lineas) {
 				}
 
 				String produccion=devolverProduccion(pila.get(pila.size()-1), a);
-
 				if(produccion.compareTo(" ")==0)
 				{
 					System.out.print("ERROR");
@@ -451,6 +450,8 @@ public GestorGramatica(List<String> lineas) {
 				}
 				else
 				{
+
+					System.out.print(produccion);
 
 					pila.remove(pila.size()-1);
 
