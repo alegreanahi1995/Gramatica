@@ -10,19 +10,18 @@ package Gramatica;
 		private static String expregular = "X_\\{\\d*\\}";
 		
 		
+		public static String reconocerBody(String linea) {
+			String[] cadenas = linea.split("->");
+			if(cadenas.length == 2) {
+				return cadenas[1].trim();
+			}
+			return "";
+		}
 		
 		public static String reconocerVariable(String linea) {
 			String[] cadenas = linea.split("->");
 			if(cadenas.length == 2) {
 				return cadenas[0].trim();
-			}
-			return "";
-		}
-
-		public static String reconocerBody(String linea) {
-			String[] cadenas = linea.split("->");
-			if(cadenas.length == 2) {
-				return cadenas[1].trim();
 			}
 			return "";
 		}
