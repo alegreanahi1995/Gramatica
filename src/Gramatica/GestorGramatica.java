@@ -85,15 +85,7 @@ public GestorGramatica(List<String> lineas) {
 		}
 		
 	
-		 for (int i=0;i<primero.size();i++) {
-				for(int j=0;j<primero.get(i).size();j++)
-				{
-
-					System.out.print(primero.get(i).get(j));
-				}
-				System.out.println();
-	
-			}
+		 
 		
 	}
 	public List<String> obtenerPrimeros(List<String> lineas,String variable) {
@@ -269,11 +261,7 @@ public GestorGramatica(List<String> lineas) {
 		}
 		}
 		
-		for(int i=0;i<tabla.size();i++)
-		{
-			System.out.print(this.noTerminales.get(i));
-			System.out.println(tabla.get(i));
-		}
+	
 
 	}
 	
@@ -284,7 +272,6 @@ public GestorGramatica(List<String> lineas) {
 	{
 		this.obtenerPrimeros(lineas);
 		this.obtenerSegundos(lineas);
-		System.out.print("yablaaa");
 		simbolosdeEntrada=new ArrayList<>();
 		for(Character c: terminales)
 		{
@@ -298,19 +285,16 @@ public GestorGramatica(List<String> lineas) {
 		
 		   for (int i=0;i<this.noTerminales.size();i++) {
 			   List<String> produccionxsimbolo=new ArrayList<String>();
-			   System.out.print(".--------"+this.noTerminales.get(i));
 				for(int j=0;j<this.simbolosdeEntrada.size();j++)
 				{
 				
 					if(this.primero.get(i).contains(String.valueOf(simbolosdeEntrada.get(j))))
 					{
 						List<String> produccion=new ArrayList<String>();
-						System.out.print(this.simbolosdeEntrada.get(j)=='$');	
 						
 						produccion=this.produccionquecoincide(lineas,noTerminales.get(i),simbolosdeEntrada.get(j));
 						
-						System.out.print(produccion+"...."+this.simbolosdeEntrada.get(j));
-						if(produccion.size()<=1) {
+					if(produccion.size()<=1) {
 
 							if(produccion.size()==1) {
 							produccionxsimbolo.addAll(produccion);
@@ -347,18 +331,7 @@ public GestorGramatica(List<String> lineas) {
 		
 		
 		   
-		   for (int i=0;i<tabla.size();i++) {
-			   System.out.print("terminal:"+this.noTerminales.get(i));
-					for(int j=0;j<tabla.get(i).size();j++)
-					{
-
-						 System.out.print("simbolo_"+this.simbolosdeEntrada.get(j));
-						System.out.print("produccion"+tabla.get(i).get(j));
-						
-					}
-					System.out.println();
 		
-				}
 	}
 	
 
@@ -478,7 +451,6 @@ public GestorGramatica(List<String> lineas) {
 				}
 				else
 				{
-					System.out.print(produccion);
 
 					pila.remove(pila.size()-1);
 
