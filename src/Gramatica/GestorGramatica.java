@@ -1,10 +1,5 @@
 package Gramatica;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
@@ -42,6 +37,7 @@ public GestorGramatica(List<String> lineas) {
 	}
 
 	
+    //agrega los no terminales 
 
 	private void agregarNoTerminal(String noTerminal) {
 		if(!noTerminal.isEmpty() && !noTerminales.contains(noTerminal)) {
@@ -49,33 +45,40 @@ public GestorGramatica(List<String> lineas) {
 		}
 	}
 	
+	//agrega lo no terminales segun el body
+	
 	private void agregarNoTerminales(List<String> noTerminales) {
 		for (String noTerminal : noTerminales) {
 			agregarNoTerminal(noTerminal);
 		}
 	}
 	
+	//agrega terminales segun el body
 	private void agregarTerminal(Character terminal) {
-		if(!terminales.contains(terminal)) {
-			terminales.add(terminal);				
-		}
+		
 	}
 	
+	//agrega terminales
 	private void agregarTerminales(List<Character> reconocerTerminalesEnBody) {
 		for (Character terminal : reconocerTerminalesEnBody) {
-			agregarTerminal(terminal);
+			if(!terminales.contains(terminal)) {
+				terminales.add(terminal);				
+			}
 		}
 		
 	}
 	
+	//devuelve los no terminales
 	public List<String> getNoTerminales(){
 		return this.noTerminales;
 	}
 	
+	//devuelve los terminales
 	public List<Character> getTerminales(){
 		return this.terminales;
 	}
 	
+	//obtiene primeros de cada variable
 	public void obtenerPrimeros(List<String> lineas) {
 		primero=new ArrayList<List<String>>();
 		for(String noterminales: this.noTerminales)
@@ -87,7 +90,10 @@ public GestorGramatica(List<String> lineas) {
 	
 		 
 		
+		
 	}
+	
+	//obtiene primeros dado una variable
 	public List<String> obtenerPrimeros(List<String> lineas,String variable) {
 	List<String> primeros=new ArrayList<String>();
 	StringBuilder str = new StringBuilder();
@@ -139,7 +145,7 @@ public GestorGramatica(List<String> lineas) {
 	
 
 	
-
+//devuelve la posicion en la que se encuentra una variable en la lista de no terminales
 	public int posicion(String variable)
 	{
 		int pos=0;
@@ -155,6 +161,8 @@ public GestorGramatica(List<String> lineas) {
 		return -1;
 	}
 	
+	
+	//obtiene segundos de las variables
 	public void obtenerSegundos(List<String> lineas) {
 
 
@@ -181,11 +189,9 @@ public GestorGramatica(List<String> lineas) {
 			String variable=noterminales;
 			Set<String> set = new HashSet<>();
 
-			List<String> notermagregarsig_x=new ArrayList<String>();
 			for(String produccion: lineas)
 			{
 				body=Reconocedor.reconocerBody(produccion);
-				String varproduc=Reconocedor.reconocerVariable(produccion);
 				if(Reconocedor.reconocerNoTerminalesxbody(body).contains(variable))
 			{	
 
@@ -221,7 +227,6 @@ public GestorGramatica(List<String> lineas) {
 					    	
 					    		lista2.remove("E");
 					    		set.addAll(lista2);
-					    	//	notermagregarsig_x.add(body.substring(pos3+1,body.indexOf("}", pos3+2)+1));
 					    	}
 					    
 					    }
@@ -229,9 +234,9 @@ public GestorGramatica(List<String> lineas) {
 					 else {
 
 						 
-					Set<String>s=new HashSet(segundos.get(this.posicion(Reconocedor.reconocerVariable(produccion))));
-					s.addAll(set);
-					set=s;		
+					Set<String>saux=new HashSet(segundos.get(this.posicion(Reconocedor.reconocerVariable(produccion))));
+					saux.addAll(set);
+					set=saux;		
 					 }
 					}    
 				
@@ -267,7 +272,7 @@ public GestorGramatica(List<String> lineas) {
 	}
 	
 	
-	
+	//crea la tabla de parsing antes obtiene primeros y segundos de cada variable y en base a eso va construyendo.
 	
 	public void crearTabladeParsing(List<String> lineas)
 	{
@@ -348,6 +353,7 @@ public GestorGramatica(List<String> lineas) {
 	}
 	
 
+	//verifica que produccion coincide dado una variable y un caracter 
 	
 	public List<String> produccionquecoincide(List<String> lineas,String variable,Character c)
 	{
@@ -397,6 +403,7 @@ public GestorGramatica(List<String> lineas) {
 		return proddevariableconcaracterc;
 }
 
+	//devuelve la produccion que debe tomar dado una variable y caracter. esto lo obtiene de la tabla de parsing
 	public String devolverProduccion(String variable,Character caracter)
 	{
 		
@@ -420,6 +427,7 @@ public GestorGramatica(List<String> lineas) {
 	}
 	
 	
+	//realiza el procedimiento para verificar si una cadena es aceptada por la gramatica 
 	public boolean procedimiento(String n)
 	{
 		

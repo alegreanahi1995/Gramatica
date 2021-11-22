@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Archivo {
 
+	//me devuelve dado la ubicacion de un archivo todas las lineas de un archivo en una lista de string
 	public static List<String> devolverLineasdeArchivo(String nombredearchivo) {
 		List<String> lines = new ArrayList<>();
 		FileReader fr = null;
