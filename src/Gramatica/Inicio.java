@@ -10,24 +10,7 @@ public class Inicio {
 
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 		
-		  String expregular ="^["+"+,a,b,c,d"+"]";
-			List<String> lista = new ArrayList<String>();
-			
-		    Pattern p = Pattern.compile(expregular);  
-
-			   String body="+abcd";
-		    Matcher m = p.matcher(body);
-	    if(m.find())
-	    	{
-	    	System.out.print("hello");
-
-	    	//body=body.replaceFirst(Character.toString(body.charAt(0)), "");
-	    	}
-	    
-	    body=body.substring(1,body.length());
-	    System.out.print(body);
-	    
-	 /*  System.out.println ("Por favor introduzca la ubicación del archivo:");
+	 System.out.println ("Por favor introduzca la ubicación del archivo:");
 	     
 	   Scanner entradaEscaner = new Scanner (System.in);
 
@@ -49,7 +32,7 @@ public class Inicio {
 	   if(gestorgm.procedimiento(entradaTeclado))
 			System.out.print("ACEPTA EL STRING");
 	   else System.out.print("NO ACEPTA EL STRING");
-*/
+
 		
 
 	}		
