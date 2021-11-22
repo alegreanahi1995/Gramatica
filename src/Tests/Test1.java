@@ -142,4 +142,20 @@ class Test1 {
 		
 
 	}
+	
+	
+	@Test
+	void test8() {
+		
+	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica6.txt");
+		
+	   GestorGramatica gestorgm = new GestorGramatica(lineas);
+		
+	   System.out.println("Terminales: " + gestorgm.getTerminales());
+	   System.out.println("No Terminales " + gestorgm.getNoTerminales());
+	   gestorgm.crearTabladeParsing(lineas);
+	   assertTrue(gestorgm.procedimiento("bdd")==false);
+		
+
+	}
 }

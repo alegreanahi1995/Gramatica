@@ -10,7 +10,7 @@ public class Inicio {
 
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 		
-	 System.out.println ("Por favor introduzca la ubicación del archivo:");
+	   System.out.println ("Por favor introduzca la ubicación del archivo:");
 	     
 	   Scanner entradaEscaner = new Scanner (System.in);
 
