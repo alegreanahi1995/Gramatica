@@ -15,6 +15,8 @@ class Test1 {
 	@Test
 	void test() {
 		
+
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -32,6 +34,7 @@ class Test1 {
 	@Test
 	void test1() {
 		
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -48,7 +51,8 @@ class Test1 {
 	
 	@Test
 	void test2() {
-		
+
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -65,6 +69,7 @@ class Test1 {
 	@Test
 	void test3() {
 		
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica2.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -82,6 +87,7 @@ class Test1 {
 	@Test
 	void test4() {
 		
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica3.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -99,6 +105,7 @@ class Test1 {
 	@Test
 	void test5() {
 		
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica4.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -115,6 +122,7 @@ class Test1 {
 	@Test
 	void test6() {
 		
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica5.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -131,6 +139,7 @@ class Test1 {
 	@Test
 	void test7() {
 		
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica6.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);
@@ -147,6 +156,7 @@ class Test1 {
 	@Test
 	void test8() {
 		
+		System.out.println();
 	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica6.txt");
 		
 	   GestorGramatica gestorgm = new GestorGramatica(lineas);

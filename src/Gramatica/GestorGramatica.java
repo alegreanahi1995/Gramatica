@@ -89,7 +89,20 @@ public GestorGramatica(List<String> lineas) {
 		
 	
 		 
-		
+
+		System.out.println();
+		System.out.println(".............PRIMEROS..........");
+	for(int i=0;i<this.primero.size();i++)
+	{
+
+
+		System.out.println();
+		System.out.print("VARIABLE:"+this.noTerminales.get(i)+"Primeros: ");
+		for(int j=0;j<this.primero.get(i).size();j++)
+		{
+			System.out.print(this.primero.get(i).get(j));
+		}
+	}
 		
 	}
 	
@@ -134,6 +147,8 @@ public GestorGramatica(List<String> lineas) {
 		}    
 		
 		}
+		
+	
 
 		return primeros;
 	}
@@ -269,6 +284,21 @@ public GestorGramatica(List<String> lineas) {
 		
 	
 		
+		System.out.println();
+		System.out.println(".............SEGUNDOS..........");
+	for(int i=0;i<this.segundos.size();i++)
+	{
+
+
+		System.out.println();
+		System.out.print("VARIABLE:"+this.noTerminales.get(i)+"Segundos: ");
+		for(int j=0;j<this.segundos.get(i).size();j++)
+		{
+			System.out.print(this.segundos.get(i).get(j));
+		}
+	}
+		
+		
 	}
 	
 	
@@ -335,14 +365,19 @@ public GestorGramatica(List<String> lineas) {
 				tabla.add(produccionxsimbolo);
 	
 			}
-		
+		   
+		   
+		   System.out.println();
+		System.out.println(".......................TABLA DE PARSING...............");
 		   for (int i=0;i<tabla.size();i++) {
-			   System.out.print("terminal:"+this.noTerminales.get(i));
+			   System.out.println();
+			   System.out.print("VARIABLE:"+this.noTerminales.get(i));
+			   
 					for(int j=0;j<tabla.get(i).size();j++)
 					{
 
-						 System.out.print("simbolo:"+this.simbolosdeEntrada.get(j));
-						System.out.print("produccion:"+tabla.get(i).get(j));
+						System.out.print("Caracter:"+this.simbolosdeEntrada.get(j)+" ");
+						System.out.print("Produccion:"+tabla.get(i).get(j)+ " ");
 						
 					}
 					System.out.println();
@@ -431,7 +466,8 @@ public GestorGramatica(List<String> lineas) {
 	public boolean procedimiento(String n)
 	{
 		
-		
+		System.out.println();
+		System.out.println(".....ALGORITMO PARA VER SI ACEPTA LA CADENA...");
 		List<String> pila=new ArrayList<String>();
 		pila.add("$");
 		pila.add("X_{1}");
@@ -448,7 +484,14 @@ public GestorGramatica(List<String> lineas) {
 		while(tope.compareTo("$")!=0)
 		{
 
+			System.out.println();
+			System.out.print("TOPE: "+tope+" ENTRADA: "+entrada+" A:"+a+" PILA: ");
 			
+			for(int i=0;i<pila.size();i++)
+			{
+				System.out.print(pila.get(i));
+			}
+			System.out.print("  ");
 			if(tope.compareTo(Character.toString(a))==0)
 			{
 				pila.remove(pila.size()-1);
@@ -471,19 +514,19 @@ public GestorGramatica(List<String> lineas) {
 				if(produccion.compareTo(" ")==0)
 				{
 				
-					System.out.print(" ACA ERROR");
+					System.out.print("ERROR");
 					return false;
 				}
 				else
 				{
 
-					System.out.print("Produccion"+produccion);
-
-					pila.remove(pila.size()-1);
+					System.out.print("Produccion: "+produccion+"  ");
 
 					int posicion=0;
 					String body=Reconocedor.reconocerBody(produccion);
 					if(body.compareTo("E")!=0) {
+					pila.remove(pila.size()-1);
+
 					int tamaño=body.length();
 					List<String> pilaalreves=new ArrayList<String>();
 					while(posicion<tamaño) {
@@ -529,22 +572,18 @@ public GestorGramatica(List<String> lineas) {
 					
 					else {
 
-						
-						if(a!='$')
-						{
 
 
 							pila.remove(pila.size()-1);
-							entrada.deleteCharAt(0);
-							a=entrada.charAt(0);
-						}
+							//entrada.deleteCharAt(0);
+							//a=entrada.charAt(0);
 						
 					}
 				}
 			}
 			
 			tope=pila.get(pila.size()-1);
-			
+
 
 		}
 
@@ -555,7 +594,7 @@ public GestorGramatica(List<String> lineas) {
 			return true;
 		}
 		else {
-			System.out.print("NO ES ACEPTADO"+entrada);
+			System.out.print("NO ES ACEPTADO");
 			return false;
 		}
 		
