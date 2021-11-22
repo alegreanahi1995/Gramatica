@@ -60,4 +60,20 @@ class Test1 {
 		
 
 	}
+	
+	
+	@Test
+	void test3() {
+		
+	   List<String> lineas = Archivo.devolverLineasdeArchivo(".\\Archivos\\gramatica2.txt");
+		
+	   GestorGramatica gestorgm = new GestorGramatica(lineas);
+		
+	   System.out.println("Terminales: " + gestorgm.getTerminales());
+	   System.out.println("No Terminales " + gestorgm.getNoTerminales());
+	   gestorgm.crearTabladeParsing(lineas);
+	   assertTrue(gestorgm.procedimiento("i+(i+i)"));
+		
+
+	}
 }
