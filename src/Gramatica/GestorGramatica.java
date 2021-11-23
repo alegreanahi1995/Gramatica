@@ -53,10 +53,6 @@ public GestorGramatica(List<String> lineas) {
 		}
 	}
 	
-	//agrega terminales segun el body
-	private void agregarTerminal(Character terminal) {
-		
-	}
 	
 	//agrega terminales
 	private void agregarTerminales(List<Character> reconocerTerminalesEnBody) {
